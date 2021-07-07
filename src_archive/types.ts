@@ -1,8 +1,8 @@
 import Token from 'markdown-it/lib/token'
 import MarkdownIt from 'markdown-it'
 import Renderer from 'markdown-it/lib/renderer'
-import { HTMLOutputSpecArray } from '../utils'
-import { StateEnv, TargetKind, Target } from '../state'
+import { IHTMLOutputSpecArray } from '../../src/utils'
+import { StateEnv, TargetKind, Target } from '../../src/state'
 
 export enum DirectiveTokens {
   open = 'container_directives_open',
@@ -29,7 +29,7 @@ export type Directive<Args extends Dict = Dict, Opts extends Dict = Dict> = {
     options: MarkdownIt.Options,
     env: StateEnv,
     self: Renderer
-  ) => HTMLOutputSpecArray
+  ) => IHTMLOutputSpecArray
 }
 
 export type Directives = Record<string, Directive<any, any>>
